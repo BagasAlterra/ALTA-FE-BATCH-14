@@ -1,0 +1,58 @@
+.container {
+  margin: 25px 20px;
+  padding: 25px 40px;
+}
+
+.content-image {
+  width: 400px;
+  height: 400px;
+  background-image: url("/IntroCSS/images/logo-alterra.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: left top;
+}
+
+.submit {
+  width: 100px;
+  height: 40px;
+  background-color: red;
+  color: white;
+}
+
+.submit:hover {
+  background-color: orange;
+}
+
+.submit:active {
+  background-color: green;
+}
+
+.click {
+  transition: all 0.5s ease;
+}
+
+.click:hover {
+  color: red;
+}
+
+.shape1 {
+  width: 500px;
+  height: 100px;
+  background-color: green;
+}
+
+.shape2 {
+  width: 50%;
+  height: 50px;
+  background-color: blue;
+}
+
+.shape3 {
+  width: 500px;
+  height: 100px;
+  background-color: orange;
+}
+
+.shape3 {
+  transition: all ease-in-out 3s;
+}

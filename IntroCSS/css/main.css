@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Poppins-Medium";
+  src: url("../fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("../fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+
+.random-introduction h1 {
+  color: blue;
+}
+
+.random-introduction p {
+  color: red;
+}
+
+.random-paragraph {
+  font-family: "Poppins-Regular";
+}
+
+.judul {
+  font-size: 36px;
+}
+
+.alpha h1,
+h2 {
+  color: brown;
+}
+
+#shape1 {
+  background-color: blue;
+  width: 200px;
+  height: 80px;
+}
+
+#shape2 {
+  background-color: green;
+  width: 200px;
+  height: 80px;
+}
