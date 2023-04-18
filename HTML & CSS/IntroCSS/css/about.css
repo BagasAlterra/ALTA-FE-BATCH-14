@@ -1,0 +1,42 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: 200px 200px 200px 100px;
+  gap: 10px;
+  background-color: blue;
+  padding: 10px;
+}
+
+.grid-container div {
+  background-color: #2196f3;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 24px;
+}
+
+.table-container {
+  margin: 20px;
+}
+
+.table {
+  width: 100px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #4e74df;
+  color: #fff;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
