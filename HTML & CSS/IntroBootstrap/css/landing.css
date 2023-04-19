@@ -1,0 +1,30 @@
+.shape1 {
+  height: 50px;
+}
+
+.shape2 {
+  height: 50px;
+}
+
+.shape3 {
+  height: 50px;
+}
+
+.shape4 {
+  height: 50px;
+}
+
+@media only screen and (min-width: 576px) {
+  .shape1 {
+    background-color: red !important;
+  }
+  .shape2 {
+    background-color: red !important;
+  }
+  .shape3 {
+    background-color: red !important;
+  }
+  .shape4 {
+    background-color: red !important;
+  }
+}
