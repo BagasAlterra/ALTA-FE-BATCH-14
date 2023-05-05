@@ -87,4 +87,68 @@ function nestedWhileLoop(number) {
   }
 }
 
-nestedWhileLoop(5);
+// nestedWhileLoop(5);
+
+// ------- DO WHILE LOOP -------
+
+function doWhileLoop(number) {
+  let i = 0;
+  do {
+    console.log(`cetak urutan nomor ke ${i}`);
+    i++;
+  } while (i < number);
+}
+
+// doWhileLoop(10);
+
+// --- NESTED DO WHILE
+// --- cara kerja nested do while loop berurutan
+// --- mulai dari do ke 1, do ke 2, dst.
+// --- do ke 2, dipengaruhi dari do sebelumnya, do ke 3 dipengaruhi dari do sebelumnya, dst.
+
+function nestedDoWhileLoop(number) {
+  let i = 0;
+  do {
+    console.log("Main Looping : ", i);
+    let j = 0;
+    do {
+      console.log("Sub Looping : ", j);
+      j++;
+    } while (j < number);
+    i++;
+  } while (i < number);
+}
+
+// nestedDoWhileLoop(5);
+
+// ------- CONTINUE & BREAK -------
+function forContinueBreak(number) {
+  for (let i = 0; i < number; i++) {
+    if (i == 1) {
+      continue; // -- minta tolong program untuk melanjutkan iterasi/perulangan berikutnya tanpa perlu memproses perintah/code selanjutnya
+    }
+    if (i > 5) {
+      break; // -- minta tolong program untuk menghentikan proses iterasi/perulangan, fungsi ini mirip sama return
+    }
+    console.log(i);
+  }
+  console.log("stop looping");
+}
+
+// forContinueBreak(10);
+
+function whileContinueBreak(start, end) {
+  while (start < end) {
+    start++;
+    if (start == 2) {
+      continue;
+    }
+    if (start > 7) {
+      break;
+    }
+    console.log("start ", start);
+  }
+  console.log("stop looping");
+}
+
+whileContinueBreak(0, 25);
