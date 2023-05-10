@@ -33,8 +33,9 @@ const sumOfNumber = (x: number, y: number) => {
 // console.log(sumOfNumber(7, 8));
 
 // --- VOID ---
-function warnUser(): void {
+function warnUser(): string | void {
   console.log("This is my warning message");
+  return "This is my warning message";
 }
 
 function gachaNumber(input: number): string | void {
@@ -45,7 +46,7 @@ function gachaNumber(input: number): string | void {
   }
 }
 
-// console.log(gachaNumber(7));
+console.log(gachaNumber(7));
 // console.log(gachaNumber(4));
 
 // --- ANONYMOUS FUNCTION ---

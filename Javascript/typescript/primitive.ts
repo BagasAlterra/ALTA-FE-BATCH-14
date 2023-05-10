@@ -146,7 +146,8 @@ let dayY: string = WeekDay[0]; // untuk mendapatkan value dari enum
 enum Color {
   red = 1,
   green,
-  blue,
+  blue = 7,
+  orange,
 }
 
 let colorX: Color = Color.blue;
