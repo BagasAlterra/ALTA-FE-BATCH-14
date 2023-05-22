@@ -1,8 +1,35 @@
 import { Component } from "react";
 
+import Card from "./components/Card";
+import Navbar from "./components/Navbar";
+
 class App extends Component {
   render() {
-    return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+    return (
+      <div>
+        <Navbar />
+        <div className="m-10 gap-y-5 gap-x-5 flex flex-row">
+          <Card />
+          <Card />
+          <Card />
+        </div>
+        <div className="m-10 gap-y-5 gap-x-5 flex flex-row">
+          <Card />
+          <Card />
+          <Card />
+        </div>
+        <div className="m-10 gap-y-5 gap-x-5 flex flex-row">
+          <Card />
+          <Card />
+          <Card />
+        </div>
+        <div className="m-10 gap-y-5 gap-x-5 flex flex-row">
+          <Card />
+          <Card />
+          <Card />
+        </div>
+      </div>
+    );
   }
 }
 

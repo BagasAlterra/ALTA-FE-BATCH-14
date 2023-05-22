@@ -18,6 +18,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
+div,
+img,
+figure {
+  background-color: white;
+}
+
+li {
+  color: black;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
