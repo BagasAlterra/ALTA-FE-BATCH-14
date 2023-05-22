@@ -1,6 +1,8 @@
 import { Component } from "react";
+import Button from "./components/Button";
 
 import Card from "./components/Card";
+import CustomerService from "./components/CustomerService";
 import Navbar from "./components/Navbar";
 
 class App extends Component {
@@ -28,6 +30,7 @@ class App extends Component {
           <Card />
           <Card />
         </div>
+        <CustomerService />
       </div>
     );
   }
