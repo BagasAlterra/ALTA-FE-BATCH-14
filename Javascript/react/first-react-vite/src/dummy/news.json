@@ -1,0 +1,28 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "title": "Hamburkan Senjata ke Ukraina, Amerika Babak Belur Jika Perang Lawan China",
+      "image": "https://thumb.viva.co.id/media/frontend/thumbs3/2023/05/23/646c434bbeaf7-viva-militer-pasukan-angkatan-bersenjata-amerika-serikat_1265_711.jpeg",
+      "description": "Sepanjang 15 bulan invasi Rusia berlangsung di Ukraina, Amerika Serikat (AS) menjadi negara yang paling banyak menggelontorkan bantuan senjata ..."
+    },
+    {
+      "id": 2,
+      "title": "Terungkap, Alasan PSSI Masih Bungkam soal Timnas Indonesia Vs Argentina",
+      "image": "https://thumb.viva.co.id/media/frontend/thumbs3/2022/12/21/63a2c2cf9bf36-timnas-argentina-juara-piala-dunia-qatar-2022_1265_711.jpg",
+      "description": "Federasi sepakbola Argentina (AFA) sudah mengumumkan bahwa Timnas Argentina bakal menjalani tur Asia pada Juni 2023 ..."
+    },
+    {
+      "id": 3,
+      "title": "Penipu Jastip Tiket Coldplay Jual dengan Harga 2 Kali Lipat, Termahal Rp26 Juta",
+      "image": "https://thumb.viva.co.id/media/frontend/thumbs3/2023/05/22/646b407461cfa-polda-metro-jaya-menangkap-pelaku-penipuan-jastip-tiket-coldplay_1265_711.jpg",
+      "description": "Pasangan suami-istri berinisial ABF (22 tahun, laki-laki) dan W (24 tahun, wanita) yang melakukan aksi tipu-tipu jastip jual-beli tiket konser Coldplay, ternyata menjual harga tiket lebih mahal dari harga normal ..."
+    },
+    {
+      "id": 4,
+      "title": "Wapres Ma'ruf Amin: Media Harus Dapat Beradaptasi di Tengah Serbuan Konten",
+      "image": "https://thumb.viva.co.id/media/frontend/thumbs3/2023/05/23/646c470db62f5-wakil-presiden-maruf-amin-kedua-dari-kanan-menyampaikan-pernyataan-kepada-pers_1265_711.jpeg",
+      "description": "Wakil Presiden Ma'ruf Amin menyebut media massa khususnya di bidang penyiaran harus dapat beradaptasi di tengah serbuan konten agar dapat bertahan ..."
+    }
+  ]
+}
