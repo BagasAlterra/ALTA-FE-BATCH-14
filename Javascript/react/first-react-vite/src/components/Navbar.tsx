@@ -1,24 +1,32 @@
 import { Component } from "react";
 
-class Navbar extends Component {
+interface GreetingProps {
+  greeting: string;
+}
+
+class Navbar extends Component<GreetingProps> {
   render() {
+    const { greeting } = this.props;
     const logo =
       "https://academy.alterra.id/wp-content/uploads/2022/06/Logo-Colour-Transparant-1.png";
 
     return (
-      <div className="navbar w-screen bg-alta-custom-amber shadow-md z-10 top-0 sticky">
-        <div className="flex-1 ml-7 bg-alta-custom-amber">
+      <div className="navbar w-screen shadow-md z-10 top-0 sticky">
+        <div className="flex-1 ml-7">
           <img src={logo} width={90} height={90} />
         </div>
-        <div className="flex-none bg-alta-custom-amber">
+        <div className="flex-none">
           <ul className="menu menu-horizontal p-0">
-            <li className="text-white">
+            <li>
+              <h3>{greeting}</h3>
+            </li>
+            <li>
               <a href="#">Home</a>
             </li>
-            <li className="text-white">
+            <li>
               <a href="#">About</a>
             </li>
-            <li className="text-white">
+            <li>
               <a href="#">Experience</a>
             </li>
           </ul>

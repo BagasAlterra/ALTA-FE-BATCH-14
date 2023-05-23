@@ -3,23 +3,41 @@ import Card from "./components/Card";
 import Layout from "./components/Layout";
 import Button from "./components/Button";
 import Modal from "./components/Modal";
+import Navbar from "./components/Navbar";
 
 import { news } from "../src/dummy/news.json";
 
 interface ModalState {
   handleModal?: boolean;
+  handleTime?: string;
 }
 
 class App extends Component<ModalState> {
   state = {
     handleModal: false,
+    handleTime: "",
   };
 
   render() {
-    const { handleModal } = this.state;
+    const { handleModal, handleTime } = this.state;
+
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours();
+
+    // untuk menentukan sapaan berdasarkan waktunya
+    if (currentHour < 12) {
+      this.setState({ handleTime: "Selamat Pagi" });
+    } else if (currentHour >= 12 && currentHour < 16) {
+      this.setState({ handleTime: "Selamat Siang" });
+    } else if (currentHour >= 16 && currentHour < 19) {
+      this.setState({ handleTime: "Selamat Sore" });
+    } else {
+      this.setState({ handleTime: "Selamat Malam" });
+    }
 
     return (
       <Layout>
+        <Navbar greeting={"Hi, " + handleTime} />
         <div className="flex flex-column">
           {news.map((item, index) => {
             return (
