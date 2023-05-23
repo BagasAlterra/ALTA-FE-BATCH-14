@@ -1,8 +1,27 @@
 import { Component } from "react";
+import Card from "./components/Card";
+import Layout from "./components/Layout";
+import { news } from "../src/dummy/news.json";
 
 class App extends Component {
   render() {
-    return <div>App</div>;
+    return (
+      <Layout>
+        <div className="flex flex-column">
+          {news.map((item, index) => {
+            return (
+              <Card
+                key={index}
+                id={"news"}
+                title={item.title}
+                description={item.description}
+                image={item.image}
+              />
+            );
+          })}
+        </div>
+      </Layout>
+    );
   }
 }
 
