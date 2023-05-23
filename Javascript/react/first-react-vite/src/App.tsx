@@ -1,10 +1,23 @@
 import { Component } from "react";
 import Card from "./components/Card";
 import Layout from "./components/Layout";
+import Button from "./components/Button";
+import Modal from "./components/Modal";
+
 import { news } from "../src/dummy/news.json";
 
-class App extends Component {
+interface ModalState {
+  handleModal?: boolean;
+}
+
+class App extends Component<ModalState> {
+  state = {
+    handleModal: false,
+  };
+
   render() {
+    const { handleModal } = this.state;
+
     return (
       <Layout>
         <div className="flex flex-column">
@@ -19,6 +32,21 @@ class App extends Component {
               />
             );
           })}
+        </div>
+        <div className="w-40 h-16">
+          <Button
+            id="clickModal"
+            label="Open Modal"
+            onClick={() => this.setState({ handleModal: true })}
+          />
+        </div>
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          <Modal
+            id="customModal"
+            isOpen={handleModal}
+            isClose={() => this.setState({ handleModal: false })}
+            children={<h1>Hello, aku adalah modal popup</h1>}
+          />
         </div>
       </Layout>
     );
