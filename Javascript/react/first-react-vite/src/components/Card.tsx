@@ -2,6 +2,7 @@ import { Component } from "react";
 
 interface CardProps {
   id: string;
+  label?: string;
   title?: string;
   description?: string;
   image?: string;
@@ -9,7 +10,7 @@ interface CardProps {
 
 class Card extends Component<CardProps> {
   render() {
-    const { id, title, description, image } = this.props;
+    const { id, title, label, description, image } = this.props;
 
     return (
       <div className="m-5 card w-96 bg-base-100 shadow-xl" id={id}>
@@ -20,7 +21,7 @@ class Card extends Component<CardProps> {
           <h1 className="card-title">{title}</h1>
           <p>{description}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
+            <button className="btn btn-primary">{label}</button>
           </div>
         </div>
       </div>
