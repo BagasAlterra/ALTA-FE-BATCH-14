@@ -8,7 +8,9 @@ class News extends Component {
   fetchNews() {
     axios
       .get(
-        `https://newsapi.org/v2/top-headlines?country=id&category=business&apiKey=027a0c86b59d4edaa9c304428b94a784`
+        `https://newsapi.org/v2/top-headlines?country=id&category=business&apiKey=${
+          import.meta.env.VITE_NEWS_API
+        }`
       )
       .then((response) => {
         console.log("response : ", response.data);
