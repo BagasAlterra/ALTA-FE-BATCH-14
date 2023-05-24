@@ -1,77 +1,141 @@
 import { Component } from "react";
-import Card from "./components/Card";
-import Layout from "./components/Layout";
-import Button from "./components/Button";
-import Modal from "./components/Modal";
-import Navbar from "./components/Navbar";
 
-import { news } from "../src/dummy/news.json";
-
-interface ModalState {
-  handleModal?: boolean;
-  handleTime?: string;
-}
-
-class App extends Component<ModalState> {
-  state = {
-    handleModal: false,
-    handleTime: "",
-  };
-
+class App extends Component {
   render() {
-    const { handleModal, handleTime } = this.state;
-
-    const currentDate = new Date();
-    const currentHour = currentDate.getHours();
-
-    // untuk menentukan sapaan berdasarkan waktunya
-    if (currentHour < 12) {
-      this.setState({ handleTime: "Selamat Pagi" });
-    } else if (currentHour >= 12 && currentHour < 16) {
-      this.setState({ handleTime: "Selamat Siang" });
-    } else if (currentHour >= 16 && currentHour < 19) {
-      this.setState({ handleTime: "Selamat Sore" });
-    } else {
-      this.setState({ handleTime: "Selamat Malam" });
-    }
-
-    return (
-      <Layout>
-        <Navbar greeting={"Hi, " + handleTime} />
-        <div className="flex flex-column">
-          {news.map((item, index) => {
-            return (
-              <Card
-                key={index}
-                id={"news"}
-                title={item.title}
-                description={item.description}
-                image={item.image}
-              />
-            );
-          })}
-        </div>
-        <div className="w-40 h-16">
-          <Button
-            id="clickModal"
-            label="Open Modal"
-            onClick={() => this.setState({ handleModal: true })}
-          />
-        </div>
-        <div className="flex flex-col items-center justify-center min-h-screen">
-          <Modal
-            id="customModal"
-            isOpen={handleModal}
-            isClose={() => this.setState({ handleModal: false })}
-            children={<h1>Hello, aku adalah modal popup</h1>}
-          />
-        </div>
-      </Layout>
-    );
+    return <div>App</div>;
   }
 }
 
 export default App;
+
+// ================================= CONTOH PENGAPLIKASIAN LIFECYCLE COMPONENT =================================
+
+// import { Component } from "react";
+// import Button from "./components/Button";
+// import Layout from "./components/Layout";
+
+// interface ComponentState {
+//   count?: number;
+// }
+
+// class App extends Component<ComponentState> {
+//   state = {
+//     count: 0,
+//   };
+
+//   // Fase Mounting
+//   componentDidMount() {
+//     console.log("Component Did Mount");
+//   }
+
+//   // Fase Updation
+//   componentDidUpdate(prevState: ComponentState) {
+//     if (prevState.count !== this.state.count) {
+//       console.log("Component Did Update");
+//     }
+//   }
+
+//   // Fase Unmounting
+//   componentWillUnmount() {
+//     console.log("Component Will Unmount");
+//   }
+
+//   handleClick = () => {
+//     this.setState({ count: this.state.count + 1 });
+//   };
+
+//   render() {
+//     const { count } = this.state;
+
+//     return (
+//       <Layout>
+//         <h1>Result : {count}</h1>
+//         <div className="w-20 h-18">
+//           <Button id="count" label="+" onClick={() => this.handleClick()} />
+//         </div>
+//       </Layout>
+//     );
+//   }
+// }
+
+// export default App;
+
+// ================================= CONTOH PEMANGGILAN PROPS =================================
+
+// import { Component } from "react";
+// import Card from "./components/Card";
+// import Layout from "./components/Layout";
+// import Button from "./components/Button";
+// import Modal from "./components/Modal";
+// import Navbar from "./components/Navbar";
+
+// import { news } from "../src/dummy/news.json";
+
+// interface ModalState {
+//   handleModal?: boolean;
+//   handleTime?: string;
+// }
+
+// class App extends Component<ModalState> {
+//   state = {
+//     handleModal: false,
+//     handleTime: "",
+//   };
+
+//   render() {
+//     const { handleModal, handleTime } = this.state;
+
+//     const currentDate = new Date();
+//     const currentHour = currentDate.getHours();
+
+//     // untuk menentukan sapaan berdasarkan waktunya
+//     if (currentHour < 12) {
+//       this.setState({ handleTime: "Selamat Pagi" });
+//     } else if (currentHour >= 12 && currentHour < 16) {
+//       this.setState({ handleTime: "Selamat Siang" });
+//     } else if (currentHour >= 16 && currentHour < 19) {
+//       this.setState({ handleTime: "Selamat Sore" });
+//     } else {
+//       this.setState({ handleTime: "Selamat Malam" });
+//     }
+
+//     return (
+//       <Layout>
+//         <Navbar greeting={"Hi, " + handleTime} />
+//         <div className="flex flex-column">
+//           {news.map((item, index) => {
+//             return (
+//               <Card
+//                 key={index}
+//                 id={"news"}
+//                 title={item.title}
+//                 description={item.description}
+//                 image={item.image}
+//               />
+//             );
+//           })}
+//         </div>
+//         <div className="w-40 h-16">
+//           <Button
+//             id="clickModal"
+//             label="Open Modal"
+//             onClick={() => this.setState({ handleModal: true })}
+//           />
+//         </div>
+//         <div className="flex flex-col items-center justify-center min-h-screen">
+//           <Modal
+//             id="customModal"
+//             isOpen={handleModal}
+//             isClose={() => this.setState({ handleModal: false })}
+//             children={<h1>Hello, aku adalah modal popup</h1>}
+//           />
+//         </div>
+//       </Layout>
+//     );
+//   }
+// }
+
+// export default App;
 
 // ================================= CONTOH STATE PADA DARK MODE =================================
 
