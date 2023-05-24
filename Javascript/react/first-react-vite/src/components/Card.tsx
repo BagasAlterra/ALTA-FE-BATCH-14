@@ -15,7 +15,7 @@ class Card extends Component<CardProps> {
     return (
       <div className="m-5 card w-96 bg-base-100 shadow-xl" id={id}>
         <figure>
-          <img src={image} alt="Shoes" />
+          <img src={image} alt="Shoes" width={"100px"} height={"100px"} />
         </figure>
         <div className="card-body">
           <h1 className="card-title">{title}</h1>

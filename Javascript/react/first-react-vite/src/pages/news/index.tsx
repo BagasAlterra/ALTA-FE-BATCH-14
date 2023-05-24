@@ -1,14 +1,16 @@
 import { Component } from "react";
 import Layout from "../../components/Layout";
 import Card from "../../components/Card";
-
-import axios from "axios";
 import Button from "../../components/Button";
 import Loading from "../../components/Loading";
+
+import axios from "axios";
+import Swal from "sweetalert2";
 
 interface NewsState {
   news: Array<string | number>;
   category: string;
+  country: string;
   isLoading: boolean;
 }
 
@@ -16,6 +18,7 @@ class News extends Component<NewsState> {
   state = {
     news: [],
     category: "",
+    country: "",
     isLoading: false,
   };
 
@@ -46,7 +49,7 @@ class News extends Component<NewsState> {
       this.fetchNews("health");
     } else if (this.state.category === "sports") {
       this.fetchNews("sports");
-    } else {
+    } else if (this.state.category === "politics") {
       this.fetchNews("politics");
     }
   }
@@ -57,6 +60,7 @@ class News extends Component<NewsState> {
     return (
       <Layout>
         <h1>Halaman News</h1>
+        <div></div>
         <div className="m-10 w-24 h-18 flex flex-column">
           <Button
             id="business"
@@ -72,6 +76,11 @@ class News extends Component<NewsState> {
             id="sports"
             label="Sports"
             onClick={() => this.setState({ category: "sports" })}
+          />
+          <Button
+            id="politics"
+            label="Politics"
+            onClick={() => this.setState({ category: "politics" })}
           />
         </div>
         <div className="m-10 flex flex-column flex-wrap">
