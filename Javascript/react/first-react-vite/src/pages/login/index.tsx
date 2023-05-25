@@ -1,22 +1,38 @@
 import { Component } from "react";
 import Swal from "sweetalert2";
+import { withRouter } from "../../withRouter";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
+
+import Cookies from "js-cookie";
+
+interface LoginProps {
+  navigate: any;
+}
 
 interface LoginState {
   username: string;
   password: string | number;
 }
 
-class Login extends Component<LoginState> {
+class Login extends Component<LoginProps, LoginState> {
   state = {
     username: "",
     password: "",
   };
 
+  handleCookies() {
+    const { username } = this.state;
+    const status = "premium";
+    Cookies.set("Username", username, { path: "/" });
+    Cookies.set("Member", status, { path: "/" });
+  }
+
   handleLogin() {
+    this.handleCookies();
     const username = this.state.username;
     const password = this.state.password;
+    const navigate = this.props.navigate;
     const credentials = {
       username: "John Doe",
       password: "johndoe12345",
@@ -49,6 +65,11 @@ class Login extends Component<LoginState> {
         text: `${this.state.username} was Successfully Login`,
         confirmButtonText: "OK",
         icon: "success",
+      });
+      navigate("/news", {
+        state: {
+          username: username,
+        },
       });
     } else {
       Swal.fire({
@@ -89,4 +110,4 @@ class Login extends Component<LoginState> {
   }
 }
 
-export default Login;
+export default withRouter(Login);

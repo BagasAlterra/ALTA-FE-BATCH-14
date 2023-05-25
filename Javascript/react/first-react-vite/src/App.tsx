@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Login from "./pages/login";
 import News from "./pages/news";
+import Pin from "./pages/pin";
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/pin" element={<Pin />} />
           <Route path="/news" element={<News />} />
         </Routes>
       </BrowserRouter>
