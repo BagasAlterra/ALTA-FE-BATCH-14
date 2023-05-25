@@ -1,8 +1,19 @@
 import { Component } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Login from "./pages/login";
+import News from "./pages/news";
 
 class App extends Component {
   render() {
-    return <div>App</div>;
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/news" element={<News />} />
+        </Routes>
+      </BrowserRouter>
+    );
   }
 }
 
