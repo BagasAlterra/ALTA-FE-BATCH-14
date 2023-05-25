@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 import Layout from "../../components/Layout";
 import Loading from "../../components/Loading";
 
-import axios from "axios";
+import api from "../../services/api";
 import Swal from "sweetalert2";
 
 interface StoreState {
@@ -21,10 +21,14 @@ class FakeStore extends Component<StoreState> {
     isLoading: false,
   };
 
-  getAllProducts() {
-    axios
-      .get(`https://fakestoreapi.com/products`)
+  // ===== Cara Instance =====
+  // Hint : Tidak perlu memanggil axios karena sudah dihandle oleh async await
+
+  async getAllProducts() {
+    await api
+      .getAllProducts()
       .then((response) => {
+        console.log(response.data);
         this.setState({ isLoading: true });
         this.setState({ products: response.data });
       })
@@ -37,10 +41,11 @@ class FakeStore extends Component<StoreState> {
       });
   }
 
-  getAllCategories() {
-    axios
-      .get(`https://fakestoreapi.com/products/categories`)
+  async getAllCategories() {
+    await api
+      .getAllCategories()
       .then((response) => {
+        console.log(response.data);
         this.setState({ categories: response.data });
       })
       .catch((error) => {
@@ -52,9 +57,9 @@ class FakeStore extends Component<StoreState> {
       });
   }
 
-  getSpecificCategories(category: string) {
-    axios
-      .get(`https://fakestoreapi.com/products/category/${category}`)
+  async getSpecificCategories(category: string) {
+    await api
+      .getSpecificCategory(category)
       .then((response) => {
         this.setState({ products: response.data });
       })
@@ -66,6 +71,55 @@ class FakeStore extends Component<StoreState> {
         });
       });
   }
+
+  // ===== Cara Tradisional =====
+  // Hint : perlu import axios terlebih dahulu
+
+  // getAllProducts() {
+  //   axios
+  //     .get(`https://fakestoreapi.com/products`)
+  //     .then((response) => {
+  //       this.setState({ isLoading: true });
+  //       this.setState({ products: response.data });
+  //     })
+  //     .catch((error) => {
+  //       Swal.fire({
+  //         title: "Failed",
+  //         text: `Something went wrong! Message : ${error}`,
+  //         confirmButtonText: "OK",
+  //       });
+  //     });
+  // }
+
+  // getAllCategories() {
+  //   axios
+  //     .get(`https://fakestoreapi.com/products/categories`)
+  //     .then((response) => {
+  //       this.setState({ categories: response.data });
+  //     })
+  //     .catch((error) => {
+  //       Swal.fire({
+  //         title: "Failed",
+  //         text: `Something went wrong! Message : ${error}`,
+  //         confirmButtonText: "OK",
+  //       });
+  //     });
+  // }
+
+  // getSpecificCategories(category: string) {
+  //   axios
+  //     .get(`https://fakestoreapi.com/products/category/${category}`)
+  //     .then((response) => {
+  //       this.setState({ products: response.data });
+  //     })
+  //     .catch((error) => {
+  //       Swal.fire({
+  //         title: "Failed",
+  //         text: `Something went wrong! Message : ${error}`,
+  //         confirmButtonText: "OK",
+  //       });
+  //     });
+  // }
 
   componentDidMount() {
     this.getAllProducts();
