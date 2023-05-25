@@ -1,7 +1,6 @@
 import { Component } from "react";
 import Swal from "sweetalert2";
 import Button from "../../components/Button";
-
 import Input from "../../components/Input";
 
 interface LoginState {
@@ -22,6 +21,24 @@ class Login extends Component<LoginState> {
       username: "John Doe",
       password: "johndoe12345",
     };
+
+    // --- Simulasi POST
+    // axios.post(`https://www.alta-immersive.com/users/login`, {}, {
+    //     data: {
+    //         username: username,
+    //         password: password,
+    //     }
+    // })
+    // .then((response) => {
+    //     // jika username dan password ada, maka statusnya bisa dilihat disini
+    // })
+    // .catch((error) => {
+    //     // jika username dan password tidak ada, maka status errornya bisa dilihat disini
+    //     // jika server error, maka bisa dilihat disini juga
+    // })
+
+    // --- Simulasi PUT
+    // -- sama dengan POST, hanya beda di Http Request nya aja
 
     if (
       username === credentials.username &&
