@@ -1,23 +1,49 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useCookies } from "react-cookie"
 import Swal from "sweetalert2"
 
 import Input from "../../components/Input"
 import Button from "../../components/Button"
 
+// import fake credentials
 import { data } from "../../dummy/credentials.json"
 
 const Login = () => {
 
     const navigate = useNavigate()
+    const [cookies, setCookie] = useCookies<string>()
     const [username, setUsername] = useState<string>("")
     const [password, setPassword] = useState<string | number>("")
 
     const handleLogin = () => {
 
         if (username === data[0].username && password == data[0].password) {
-            navigate("/home")
-        } else {
+            setCookie('username', username, { path: "/" })
+            setCookie('status', data[0].status, { path: "/" })
+            navigate("/home", {
+                state: {
+                    username: username
+                }
+            })
+        } else if (username === data[1].username && password == data[1].password) {
+            setCookie('username', username, { path: "/" })
+            setCookie('status', data[1].status, { path: "/" })
+            navigate("/home", {
+                state: {
+                    username: username
+                }
+            })
+        } else if (username === data[2].username && password == data[2].password) {
+            setCookie('username', username, { path: "/" })
+            setCookie('status', data[2].status, { path: "/" })
+            navigate("/home", {
+                state: {
+                    username: username
+                }
+            })
+        }
+        else {
             Swal.fire({
                 icon: "error",
                 title: "Login Failed",
