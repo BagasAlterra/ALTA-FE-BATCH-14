@@ -3,6 +3,7 @@ import { CookiesProvider } from "react-cookie"
 
 import Login from "./pages/login"
 import Home from "./pages/home"
+import News from "./pages/news"
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/news" element={<News />} />
         </Routes>
       </BrowserRouter>
     </CookiesProvider>
