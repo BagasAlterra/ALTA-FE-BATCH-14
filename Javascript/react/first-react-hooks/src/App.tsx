@@ -6,6 +6,7 @@ import Home from "./pages/home";
 import News from "./pages/news";
 import Count from "./pages/count";
 import Details from "./pages/details";
+import ToDo from "./pages/todo";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/news" element={<News />} />
           <Route path="/count" element={<Count />} />
           <Route path="/details" element={<Details />} />
+          <Route path="/todo" element={<ToDo />} />
         </Routes>
       </BrowserRouter>
     </CookiesProvider>
