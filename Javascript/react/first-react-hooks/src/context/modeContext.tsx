@@ -2,7 +2,7 @@ import React, { FC, useState, useContext, createContext } from "react";
 
 interface ModeProps {
   children?: React.ReactNode;
-  toggle: boolean | any[];
+  toggle?: boolean | any[];
   setToggle?: (toggle: boolean) => void;
 }
 
@@ -13,9 +13,7 @@ export const useModeContext = () => {
   const [toggle, setToggle] = context.toggle;
 
   const handleToggle = () => {
-    setToggle((toggle: boolean) => {
-      !toggle;
-    });
+    setToggle(!toggle);
   };
 
   return {

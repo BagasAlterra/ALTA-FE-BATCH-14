@@ -1,15 +1,18 @@
-import { FC } from 'react'
+import { FC } from "react";
 
 interface LayoutProps {
-    children?: React.ReactNode
+  children?: React.ReactNode;
+  isMode?: boolean | string;
 }
 
-const Layout: FC<LayoutProps> = ({ children }) => {
-    return (
-        <div className="flex flex-col min-h-screen">
-            <div className="flex-1">{children}</div>
-        </div>
-    )
-}
+const Layout: FC<LayoutProps> = ({ children, isMode }) => {
+  return (
+    <div
+      className={`flex flex-col w-screen ${isMode ? `bg-black` : `bg-white`}`}
+    >
+      <div className="flex-1 min-h-screen">{children}</div>
+    </div>
+  );
+};
 
-export default Layout
+export default Layout;
