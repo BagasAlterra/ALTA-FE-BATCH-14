@@ -40,6 +40,7 @@ const Product = () => {
       name: item.title,
       price: item.price,
     };
+    setId(item.id);
     dispatch(addItem(newItem));
     console.log("add to cart : ", cart.items);
     Swal.fire({
@@ -61,7 +62,7 @@ const Product = () => {
           <Button
             id="navigate"
             label="Navigate to Detail"
-            onClick={() => navigate(`/detail`)}
+            onClick={() => navigate(`/detail/${id}`)}
           />
         </div>
         {data && loading === true ? (
