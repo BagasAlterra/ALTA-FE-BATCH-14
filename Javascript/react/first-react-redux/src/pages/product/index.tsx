@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Swal from "sweetalert2";
@@ -7,6 +8,7 @@ import Card from "../../components/Card";
 import Button from "../../components/Button";
 
 const Product = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState<[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -44,6 +46,7 @@ const Product = () => {
                 description={item.description}
                 image={item.image}
                 price={item.price}
+                handleDetail={() => navigate(`/detail/${item.id}`)}
               />
             );
           })
