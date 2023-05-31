@@ -35,13 +35,16 @@ const Product = () => {
   };
 
   const addToCart = (item: any) => {
-    const newItem: Item = {
-      id: item.id,
-      name: item.title,
-      price: item.price,
-    };
+    const newItem: Item[] | string = [
+      {
+        id: item.id,
+        name: item.title,
+        price: item.price,
+      },
+    ];
     setId(item.id);
-    dispatch(addItem(newItem));
+    dispatch(addItem([...newItem]));
+    localStorage.setItem("items", cart.items);
     console.log("add to cart : ", cart.items);
     Swal.fire({
       icon: "success",

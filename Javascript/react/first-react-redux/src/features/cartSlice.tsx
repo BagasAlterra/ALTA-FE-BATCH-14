@@ -20,6 +20,7 @@ export const cartSlice = createSlice({
   reducers: {
     addItem(state, action: PayloadAction<Item>) {
       state.items.push(action.payload);
+      localStorage.setItem("items", state.items);
     },
     removeItem(state, action: PayloadAction<number>) {
       state.items = state.items.filter((item) => {

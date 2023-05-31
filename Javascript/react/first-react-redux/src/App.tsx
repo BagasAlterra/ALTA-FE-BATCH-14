@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Landing from "./pages/landing";
 import Login from "./pages/login";
 import Count from "./pages/count";
 import Product from "./pages/product";
@@ -9,7 +10,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/count" element={<Count />} />
         <Route path="/product" element={<Product />} />
         <Route path="/detail/:id" element={<Detail />} />
