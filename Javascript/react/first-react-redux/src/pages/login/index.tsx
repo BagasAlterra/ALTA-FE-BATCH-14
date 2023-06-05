@@ -7,61 +7,47 @@ import Swal from "sweetalert2";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 
-import { useFormik } from "formik"
-import * as Yup from 'yup'
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const schema = Yup.object({
-  username: Yup.string().required('Username harus diisi'),
-  password: Yup.string().required('Password harus diisi')
-})
+  username: Yup.string().required("Username required"),
+  password: Yup.string().required("Password required"),
+});
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [check, setCheck] = useState<boolean>(true);
   const formik = useFormik({
     initialValues: {
-      username: '',
-      password: ''
+      username: "",
+      password: "",
     },
     validationSchema: schema,
     onSubmit: (values) => {
-      console.log(values)
-    }
-  })
+      console.log(values);
+    },
+  });
 
   const onLogin = () => {
     const user: User = {
       username: formik.values.username,
-      password: formik.values.password
-    }
-    console.log("username : ", user.username)
-    console.log("password : ", user.password)
+      password: formik.values.password,
+    };
+    console.log("username : ", user.username);
+    console.log("password : ", user.password);
     if (user.username !== "" && user.password !== "") {
       dispatch(login(user));
       navigate("/count");
     } else {
+      setCheck(false);
       Swal.fire({
+        icon: "error",
         title: "Failed",
-        text: "Please check your username or password!",
-        confirmButtonText: "OK",
+        text: `Check your username or password again!`,
       });
     }
-
-    // const user: User = {
-    //   username,
-    //   password,
-    // };
-
-    // if (user.username !== "" && user.password !== "") {
-    //   dispatch(login(user));
-    //   navigate("/count");
-    // } else {
-    //   Swal.fire({
-    //     title: "Failed",
-    //     text: "Please check your username or password!",
-    //     confirmButtonText: "OK",
-    //   });
-    // }
   };
 
   return (
@@ -74,7 +60,7 @@ const Login = () => {
           type="text"
           value={formik.values.username}
           onChange={formik.handleChange}
-          error={formik.touched.username && formik.errors.username}
+          error={check === false && formik.errors.username}
         />
         <Input
           id="password"
@@ -83,7 +69,7 @@ const Login = () => {
           type="password"
           value={formik.values.password}
           onChange={formik.handleChange}
-          error={formik.touched.password && formik.errors.password}
+          error={check === false && formik.errors.password}
         />
         <Button id="login" label="Login" onClick={() => onLogin()} />
       </div>
