@@ -7,19 +7,35 @@ import Swal from "sweetalert2";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 
+import { useFormik } from "formik"
+import * as Yup from 'yup'
+
+const schema = Yup.object({
+  username: Yup.string().required('Username harus diisi'),
+  password: Yup.string().required('Password harus diisi')
+})
+
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string | number>();
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      password: ''
+    },
+    validationSchema: schema,
+    onSubmit: (values) => {
+      console.log(values)
+    }
+  })
 
   const onLogin = () => {
     const user: User = {
-      username,
-      password,
-    };
-
+      username: formik.values.username,
+      password: formik.values.password
+    }
+    console.log("username : ", user.username)
+    console.log("password : ", user.password)
     if (user.username !== "" && user.password !== "") {
       dispatch(login(user));
       navigate("/count");
@@ -30,6 +46,22 @@ const Login = () => {
         confirmButtonText: "OK",
       });
     }
+
+    // const user: User = {
+    //   username,
+    //   password,
+    // };
+
+    // if (user.username !== "" && user.password !== "") {
+    //   dispatch(login(user));
+    //   navigate("/count");
+    // } else {
+    //   Swal.fire({
+    //     title: "Failed",
+    //     text: "Please check your username or password!",
+    //     confirmButtonText: "OK",
+    //   });
+    // }
   };
 
   return (
@@ -40,16 +72,18 @@ const Login = () => {
           name="username"
           label="Username"
           type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={formik.values.username}
+          onChange={formik.handleChange}
+          error={formik.touched.username && formik.errors.username}
         />
         <Input
           id="password"
           name="password"
           label="Password"
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          error={formik.touched.password && formik.errors.password}
         />
         <Button id="login" label="Login" onClick={() => onLogin()} />
       </div>

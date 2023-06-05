@@ -6,10 +6,11 @@ interface InputProps {
     name?: string;
     type?: string;
     value?: string | number;
+    error?: string | boolean | undefined
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-const Input: FC<InputProps> = ({ id, label, name, type, value, onChange }) => {
+const Input: FC<InputProps> = ({ id, label, name, type, value, error, onChange }) => {
     return (
         <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2" htmlFor={name}>
